@@ -43,7 +43,7 @@ const Hero = () => {
               <Users size={18} className="text-brand-orange"/>
               <div className="text-left">
                 <h4 className="font-bold text-gray-900 text-xs">Any Group Size</h4>
-                <p className="text-[10px] text-gray-500 uppercase">7 - 42 Seaters</p>
+                <p className="text-[10px] text-gray-500 uppercase">4 - 17 Seaters</p>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@ const Hero = () => {
         <div className="flex-1 w-full relative px-2 md:px-0">
           <div className="rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl h-[280px] md:h-[450px] relative z-0">
             <img 
-              src="/images/hero.jpg" 
+              src="/images/Tirumala_home2.webp" 
               alt="Tirumala Temple Hills" 
               className="w-full h-full object-cover"
               onError={(e) => {e.target.src = 'https://images.unsplash.com/photo-1623933671813-b541a4a42b18?w=800'}} // Fallback if image missing

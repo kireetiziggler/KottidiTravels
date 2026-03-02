@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 import { Clock, ChevronDown } from 'lucide-react';
+import PackageBookingModal from './PackageBookingModal'; // Make sure path is correct
 
 const allPackages = [
-  { id: 1, title: 'Tirupati Local', duration: '1 Day', price: '₹2,500', places: ['Tirumala', 'Padmavathi'], image: '/images/tirumala.jpg' },
-  { id: 2, title: 'Tirumala & Kalahasti', duration: '1 Day', price: '₹3,200', places: ['Tirumala', 'Srikalahasti'], image: '/images/kalahasti.jpg' },
-  { id: 3, title: 'Golden Temple', duration: '2 Days', price: '₹7,000', places: ['Vellore', 'Kanipakam'], image: '/images/vellore.jpg' },
-  { id: 4, title: 'Spiritual Triangle', duration: '2 Days', price: '₹7,500', places: ['Arunachalam', 'Kanchipuram'], image: '/images/arunachalam.jpg' },
-  { id: 5, title: 'Chennai & Pondy', duration: '3 Days', price: '₹12,500', places: ['Chennai', 'Pondicherry'], image: '/images/chennai.jpg' },
-  { id: 6, title: 'South India Tour', duration: '1 Week', price: '₹28,000', places: ['Madurai', 'Rameswaram'], image: '/images/south-india.jpg' },
+  { id: 1, title: 'Tirupati Local', duration: '1 Day', places: ['Tirumala', 'Padmavathi'], image: '/images/tirumala.jpg' },
+  { id: 2, title: 'Tirumala & Kalahasti', duration: '1 Day', places: ['Tirumala', 'Srikalahasti'], image: '/images/kalahasti.jpg' },
+  { id: 3, title: 'Golden Temple', duration: '2 Days', places: ['Vellore', 'Kanipakam'], image: '/images/vellore.jpg' },
+  { id: 4, title: 'Spiritual Triangle', duration: '2 Days', places: ['Arunachalam', 'Kanchipuram'], image: '/images/arunachalam.jpg' },
+  { id: 5, title: 'Chennai & Pondy', duration: '3 Days', places: ['Chennai', 'Pondicherry'], image: '/images/chennai.jpg' },
+  { id: 6, title: 'South India Tour', duration: '1 Week', places: ['Madurai', 'Rameswaram'], image: '/images/south-india.jpg' },
 ];
 
 const Packages = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedPackage, setSelectedPackage] = useState(null);
 
   const filtered = activeFilter === 'All' ? allPackages : allPackages.filter(p => p.duration.includes(activeFilter));
-
-  const handleBook = (pkg) => {
-    window.open(`https://wa.me/919493015558?text=I'm interested in ${pkg.title} (${pkg.duration})`, '_blank');
-  };
 
   return (
     <section id="packages" className="py-16 md:py-20 bg-gray-50">
@@ -55,7 +53,7 @@ const Packages = () => {
                     src={pkg.image} 
                     alt={pkg.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition duration-700" 
-                    onError={(e) => {e.target.src = 'https://placehold.co/600x400?text=Image+Not+Found'}}
+                    onError={(e) => {e.target.src = 'https://placehold.co/600x400?text=Package+Image'}}
                 />
                 <span className="absolute top-3 right-3 bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2 py-1 rounded flex items-center">
                   <Clock size={10} className="mr-1"/> {pkg.duration}
@@ -68,10 +66,13 @@ const Packages = () => {
                     <span key={i} className="text-[10px] bg-gray-100 text-gray-600 px-2 py-0.5 rounded border border-gray-200">{p}</span>
                   ))}
                 </div>
-                <div className="mt-auto flex justify-between items-center pt-3 border-t border-gray-50">
-                  <span className="text-xl font-bold text-brand-orange">{pkg.price}</span>
-                  <button onClick={() => handleBook(pkg)} className="bg-gray-900 text-white text-xs font-bold px-4 py-2 rounded-lg hover:bg-brand-orange transition">
-                    Book Now
+                {/* Price removed, button spans full width or aligns right */}
+                <div className="mt-auto pt-3 border-t border-gray-50 flex justify-end">
+                  <button 
+                    onClick={() => setSelectedPackage(pkg)} 
+                    className="w-full bg-brand-orange text-white text-xs font-bold py-3 rounded-xl hover:bg-orange-600 transition shadow-md"
+                  >
+                    Book Package
                   </button>
                 </div>
               </div>
@@ -79,6 +80,12 @@ const Packages = () => {
           ))}
         </div>
       </div>
+
+      <PackageBookingModal 
+        isOpen={!!selectedPackage} 
+        onClose={() => setSelectedPackage(null)} 
+        selectedPackage={selectedPackage || {}} 
+      />
     </section>
   );
 };

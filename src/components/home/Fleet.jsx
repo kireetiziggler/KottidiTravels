@@ -4,22 +4,40 @@ import { Check } from 'lucide-react';
 
 const vehicles = [
   { 
-    id: 1, name: 'Toyota Innova', badge: '6-7 Seaters', 
+    id: 1, name: 'Innova Crysta', badge: '6-7 Seaters', 
+    image: '/images/innova_crysta.webp', 
+    desc: 'Perfect for small families and groups. Comfortable and spacious.',
+    features: ['AC', 'Comfortable Seating', 'Luggage Space', 'Music System']
+  },
+  { 
+    id: 2, name: 'Innova', badge: '6-7 Seaters', 
     image: '/images/innova.jpg', 
     desc: 'Perfect for small families and groups. Comfortable and spacious.',
     features: ['AC', 'Comfortable Seating', 'Luggage Space', 'Music System']
   },
   { 
-    id: 2, name: 'Tempo Traveller', badge: '12-17 Seaters', 
+    id: 3, name: 'Tempo Traveller', badge: '12-17 Seaters', 
     image: '/images/tempo.jpg', 
     desc: 'Ideal for medium-sized groups traveling together.',
-    features: ['AC', 'Push Back Seats', 'Large Luggage Space', 'LED TV']
+    features: ['AC', 'Push Back Seats', 'Large Luggage Space']
   },
   { 
-    id: 3, name: '42 Seater Bus', badge: '42 Seaters', 
-    image: '/images/bus.jpg', 
+    id: 4, name: 'Urbania', badge: '12-16 Seaters', 
+    image: '/images/Urbania.webp', 
     desc: 'Best for large groups, corporate tours, and events.',
-    features: ['AC', 'Reclining Seats', 'Entertainment System', 'Rest Room']
+    features: ['AC', 'Reclining Seats', 'Entertainment System']
+  },
+  { 
+    id: 5, name: 'Dzire', badge: '4-5 Seaters', 
+    image: '/images/Dzire.webp', 
+    desc: 'Best for large groups, corporate tours, and events.',
+    features: ['AC', 'Reclining Seats', 'Entertainment System']
+  },
+  { 
+    id: 6, name: 'Ertiga', badge: '6-7 Seaters', 
+    image: '/images/Ertiga.webp', 
+    desc: 'Best for large groups, corporate tours, and events.',
+    features: ['AC', 'Reclining Seats', 'Entertainment System']
   },
 ];
 
