@@ -39,6 +39,12 @@ const vehicles = [
     desc: 'Best for large groups, corporate tours, and events.',
     features: ['AC', 'Reclining Seats', 'Entertainment System']
   },
+  { 
+    id: 6, name: 'Fortuner', badge: '5 Seaters', 
+    image: '/images/fortuner.webp', 
+    desc: 'Best for large groups, corporate tours, and events.',
+    features: ['AC', 'Reclining Seats', 'Entertainment System']
+  }
 ];
 
 const Fleet = () => {

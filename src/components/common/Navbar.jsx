@@ -14,8 +14,13 @@ const Navbar = () => {
         
         {/* Brand */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="bg-brand-orange p-2 rounded-lg text-white group-hover:scale-105 transition">
-            <Car size={24} />
+          <div className="group-hover:scale-105 transition">
+            {/* Replaced Car icon with logo.webp */}
+            <img 
+              src="/images/logo.webp" 
+              alt="Kottidi Travels Logo" 
+              className="h-12 w-auto object-contain" 
+            />
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-900 leading-none font-sans">
