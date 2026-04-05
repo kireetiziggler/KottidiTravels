@@ -25,7 +25,7 @@ const PackageCard = ({ pkg, onBook }) => {
       <div className="h-52 overflow-hidden relative">
         <img 
           src={pkg.image} 
-          alt={pkg.title} 
+          alt={`${pkg.title} - Travels from Tirupati to ${pkg.places[0]}`}
           className="w-full h-full object-cover group-hover:scale-110 transition duration-700" 
           onError={(e) => {e.target.src = 'https://placehold.co/600x400?text=Kottidi+Travels'}}
         />

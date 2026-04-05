@@ -14,10 +14,10 @@ const Hero = () => {
           </div>
           
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.2]">
-            Your Spiritual <br className="hidden md:block"/>
-            Journey Starts <span className="text-brand-orange">Here</span>
+            Best <span className="text-brand-orange">Tirupati Travels</span> & <br className="hidden md:block" />
+            Car Rental Service
           </h1>
-          
+
           <p className="text-sm md:text-base text-gray-600 max-w-lg mx-auto lg:mx-0 leading-relaxed">
             Experience comfortable and reliable travel services to Tirumala, Tirupati, and sacred temples. Professional drivers & affordable packages.
           </p>
