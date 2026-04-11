@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import BookingModal from './BookingModal';
-import { Info, Users, Gauge, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Users, Gauge, ChevronRight } from 'lucide-react';
 
 const vehicles = [
   { id: 1, name: 'Innova Crysta Rental', badge: '6-7 Seaters', image: '/images/innova_crysta.webp', desc: 'Premium comfort for families visiting Tirumala and Tamil Nadu temples.', localRate: '3,000', outstationRate: '22/KM', mileage: '10 KM/L' },
@@ -19,14 +19,18 @@ const Fleet = () => {
 
   const handleScroll = (e) => {
     const scrollLeft = e.target.scrollLeft;
-    const itemWidth = e.target.offsetWidth * 0.85; // Matches the 85vw width
+    const firstChild = e.target.firstChild;
+    const itemWidth = firstChild ? firstChild.offsetWidth + 20 : e.target.offsetWidth * 0.85; 
     const newIndex = Math.round(scrollLeft / itemWidth);
-    setActiveIndex(newIndex);
+    if (newIndex !== activeIndex) {
+      setActiveIndex(newIndex);
+    }
   };
 
   const scrollTo = (index) => {
     if (scrollRef.current) {
-      const itemWidth = scrollRef.current.offsetWidth * 0.85;
+      const firstChild = scrollRef.current.firstChild;
+      const itemWidth = firstChild ? firstChild.offsetWidth + 20 : scrollRef.current.offsetWidth * 0.85;
       scrollRef.current.scrollTo({ left: index * itemWidth, behavior: 'smooth' });
     }
   };
@@ -37,10 +41,9 @@ const Fleet = () => {
         
         <div className="text-center mb-10">
           <span className="text-brand-orange font-bold uppercase text-[10px] tracking-[0.2em]">Our Fleet & Rates</span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2">Transparent Pricing</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2">Fixed Pricing</h2>
         </div>
         
-        {/* The Swipe Section */}
         <div className="relative group">
           <div 
             ref={scrollRef}
@@ -50,7 +53,8 @@ const Fleet = () => {
             {vehicles.map((vehicle) => (
               <div 
                 key={vehicle.id} 
-                className="min-w-[85vw] md:min-w-0 snap-center bg-white rounded-[2rem] shadow-xl border border-gray-100 flex flex-col overflow-hidden h-full"
+                className="min-w-[85vw] md:min-w-0 snap-center snap-always bg-white rounded-[2rem] shadow-xl border border-gray-100 flex flex-col overflow-hidden h-full"
+                style={{ scrollSnapStop: 'always' }}
               >
                 <div className="relative h-48 md:h-56 overflow-hidden">
                   <img src={vehicle.image} alt={vehicle.name} className="w-full h-full object-cover" />
@@ -64,13 +68,18 @@ const Fleet = () => {
                   <p className="text-[11px] text-gray-400 mb-5 line-clamp-2">{vehicle.desc}</p>
                   
                   <div className="grid grid-cols-2 gap-3 mb-5">
-                    <div className="bg-orange-50/50 p-4 rounded-2xl border border-orange-100 text-center">
-                      <span className="block text-[9px] text-gray-500 font-bold uppercase mb-0.5">Rent</span>
-                      <span className="text-lg font-extrabold text-gray-900">₹{vehicle.localRate}</span>
+                    {/* Box 1: Fixed Local Rent */}
+                    <div className="bg-orange-50/50 p-4 rounded-2xl border border-orange-100 text-center flex flex-col justify-center min-h-[85px]">
+                      <span className="block text-[10px] text-gray-400 font-bold uppercase mb-1">Rent</span>
+                      <span className="text-xl font-black text-gray-900 leading-none">₹{vehicle.localRate}</span>
+                      <span className="text-[8px] text-gray-400 font-bold uppercase mt-2 italic">Per Day</span>
                     </div>
-                    <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-center">
-                      <span className="block text-[9px] text-gray-500 font-bold uppercase mb-0.5">Outstation</span>
-                      <span className="text-lg font-extrabold text-brand-orange">₹{vehicle.outstationRate}</span>
+
+                    {/* Box 2: Fixed Outstation Rate */}
+                    <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100 text-center flex flex-col justify-center min-h-[85px]">
+                      <span className="block text-[10px] text-gray-400 font-bold uppercase mb-1">Outstation</span>
+                      <span className="text-xl font-black text-brand-orange leading-none">₹{vehicle.outstationRate}</span>
+                      <span className="text-[8px] text-gray-400 font-bold uppercase mt-2 italic">Fuel</span>
                     </div>
                   </div>
 
@@ -81,16 +90,15 @@ const Fleet = () => {
 
                   <button 
                     onClick={() => setSelectedVehicle(vehicle)} 
-                    className="w-full bg-brand-orange text-white text-sm font-bold py-4 rounded-2xl shadow-lg active:scale-95"
+                    className="w-full bg-brand-orange text-white text-sm font-bold py-4 rounded-2xl shadow-lg active:scale-95 flex items-center justify-center gap-2"
                   >
-                    Book Now
+                    Book Now <ChevronRight size={16} />
                   </button>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Indicators - Only visible on Mobile */}
           <div className="flex justify-center items-center gap-2 md:hidden mt-2 mb-8">
             {vehicles.map((_, index) => (
               <button
@@ -105,7 +113,12 @@ const Fleet = () => {
           </div>
         </div>
       </div>
-      <BookingModal isOpen={!!selectedVehicle} onClose={() => setSelectedVehicle(null)} selectedVehicle={selectedVehicle || {}} />
+
+      <BookingModal 
+        isOpen={!!selectedVehicle} 
+        onClose={() => setSelectedVehicle(null)} 
+        selectedVehicle={selectedVehicle || {}} 
+      />
     </section>
   );
 };
