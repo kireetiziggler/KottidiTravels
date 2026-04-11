@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, ChevronDown, Star, MapPin } from 'lucide-react';
+import { Clock, Star, MapPin, ChevronRight } from 'lucide-react';
 import PackageBookingModal from './PackageBookingModal';
 
 const allPackages = [
@@ -8,66 +8,71 @@ const allPackages = [
   { id: 3, title: 'Divine Duo Tour', duration: '2 Days', isPopular: true, places: ['Tirumala temple', 'Varaha Swamy temple', 'Japali', 'Papanasam', 'Aakasha ganga', 'Venugopala swamy temple', 'Padmavathi temple', 'Sri Kalahasti temple'], image: '/images/3-package.webp' },
   { id: 4, title: 'Golden Temple Special', duration: '2 Days', places: ['Golden Temple', 'Kanipakam', 'Tiruvannamalai', 'Kanchipuram', 'Tiruttani', 'Tirupati Drop'], image: '/images/4-package.webp' },
   { id: 5, title: 'Tirupati & Tamil Nadu', duration: '3 Days', places: ['Padmavathi temple', 'Govindharaja temple', 'Kapila theertham', 'Iskon temple', 'Srinivasa Mangapuram', 'Vakula matha', 'Golden Temple', 'Kanipakam', 'Tiruvannamalai', 'Kanchipuram', 'Tiruttani'], image: '/images/5-package-1.webp' },
-  { id: 6, title: 'Panchalinga (Five Shiva Temples)', duration: '3 Days', places: ['Sri Kalahasti temple', 'Kanchipuram', 'Chidambaram', 'Sri Ranganatha temple', 'Tiruvannamalai'], image: '/images/6-package.webp' },
-  { id: 7, title: 'South Heritage Glimpse', duration: '4 Days', places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Tanjavur', 'Kumbakonam', 'Sri Kalahasti temple', 'Kanchipuram', 'Tiruttani', 'Chidambaram'], image: '/images/kanchipuram.webp' },
+  { id: 6, title: 'Panchalinga Shiva Tour', duration: '3 Days', places: ['Sri Kalahasti temple', 'Kanchipuram', 'Chidambaram', 'Sri Ranganatha temple', 'Tiruvannamalai'], image: '/images/6-package.webp' },
+  { id: 7, title: 'South Heritage Glimpse', duration: '4 Days', places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Tanjavur', 'Kumbakonam'], image: '/images/kanchipuram.webp' },
   { id: 8, title: 'Pure Tamil Nadu Yatra', duration: '5 Days', places: ['Madurai', 'Rameswaram', 'Palani', 'Kanyakumari', 'Thiruchendur'], image: '/images/Kanyakumari.webp' },
-  { id: 9, title: 'South India Highlights', duration: '6 Days', places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Tanjavur', 'Kumbakonam', 'Sri Kalahasti temple', 'Kanchipuram', 'Tiruttani', 'Chidambaram', 'Madurai', 'Rameswaram', 'Palani', 'Kanyakumari', 'Thiruchendur', 'Trivandrum', 'Alleppey', 'Kochi', 'Guruvayur', 'Munnar'], image: '/images/trivandrum.webp' },
-  { id: 10, title: 'The Grand South Yatra', duration: '1 Week', isPopular: true, places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Tanjavur', 'Kumbakonam', 'Sri Kalahasti temple', 'Kanchipuram', 'Tiruttani', 'Chidambaram', 'Madurai', 'Rameswaram', 'Palani', 'Kanyakumari', 'Thiruchendur', 'Trivandrum', 'Alleppey', 'Kochi', 'Guruvayur', 'Munnar', 'Ooty', 'Kodaikanal'], image: '/images/South-india-packages.webp' },
+  { id: 9, title: 'South India Highlights', duration: '6 Days', places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Tanjavur', 'Kumbakonam', 'Madurai', 'Rameswaram'], image: '/images/trivandrum.webp' },
+  { id: 10, title: 'The Grand South Yatra', duration: '1 Week', isPopular: true, places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Madurai', 'Rameswaram', 'Kanyakumari', 'Munnar', 'Ooty'], image: '/images/South-india-packages.webp' },
 ];
 
 const PackageCard = ({ pkg, onBook }) => {
-  const [showAllPlaces, setShowAllPlaces] = useState(false);
-  const visiblePlaces = showAllPlaces ? pkg.places : pkg.places.slice(0, 5);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Show only 4 places initially, then all if expanded
+  const displayedPlaces = isExpanded ? pkg.places : pkg.places.slice(0, 4);
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col group">
+    <div className="bg-white rounded-[2rem] shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col overflow-hidden group h-full">
       {/* Image Section */}
-      <div className="h-52 overflow-hidden relative">
+      <div className="h-48 md:h-52 overflow-hidden relative">
         <img 
           src={pkg.image} 
-          alt={`${pkg.title} - Travels from Tirupati to ${pkg.places[0]}`}
-          className="w-full h-full object-cover group-hover:scale-110 transition duration-700" 
+          alt={pkg.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
           onError={(e) => {e.target.src = 'https://placehold.co/600x400?text=Kottidi+Travels'}}
         />
         {pkg.isPopular && (
-          <div className="absolute top-3 left-3 bg-orange-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center shadow-lg uppercase tracking-tight">
-            <Star size={10} className="mr-1 fill-white"/> Most Popular
+          <div className="absolute top-3 left-3 bg-brand-orange text-white text-[9px] font-bold px-3 py-1 rounded-full shadow-lg uppercase">
+            <Star size={10} className="inline mr-1 fill-white"/> Popular
           </div>
         )}
-        <span className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-lg flex items-center border border-white/20">
-          <Clock size={12} className="mr-1.5 text-orange-400"/> {pkg.duration}
-        </span>
+        <div className="absolute bottom-3 right-3 bg-black/70 backdrop-blur-md px-3 py-1 rounded-lg flex items-center gap-1.5 border border-white/10">
+          <Clock size={12} className="text-brand-orange"/>
+          <span className="text-[10px] font-bold text-white">{pkg.duration}</span>
+        </div>
       </div>
 
       {/* Content Section */}
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors">{pkg.title}</h3>
+      <div className="p-5 md:p-6 flex flex-col flex-grow">
+        <h3 className="text-lg font-bold text-gray-900 mb-3">{pkg.title}</h3>
         
-        <div className="flex flex-wrap gap-1.5 mb-6">
-          {visiblePlaces.map((place, i) => (
-            <span key={i} className="text-[10px] bg-gray-50 text-gray-600 px-2 py-1 rounded-md border border-gray-100 font-medium flex items-center">
-              <MapPin size={8} className="mr-1 text-gray-400" /> {place}
+        {/* Places Tags */}
+        <div className="flex flex-wrap gap-1.5 mb-5 min-h-[50px]">
+          {displayedPlaces.map((place, i) => (
+            <span key={i} className="text-[9px] bg-gray-50 text-gray-500 px-2 py-1 rounded-md border border-gray-100 flex items-center gap-1 animate-fadeIn">
+              <MapPin size={8} className="text-brand-orange" /> {place}
             </span>
           ))}
           
-          {pkg.places.length > 5 && (
+          {pkg.places.length > 4 && (
             <button 
-              onClick={() => setShowAllPlaces(!showAllPlaces)}
-              className="text-[10px] text-orange-600 font-extrabold px-2 py-1 hover:bg-orange-50 rounded-md transition-colors"
+              onClick={(e) => {
+                e.stopPropagation(); // Prevents triggering other clicks
+                setIsExpanded(!isExpanded);
+              }}
+              className="text-[9px] text-brand-orange font-bold px-1 hover:underline focus:outline-none"
             >
-              {showAllPlaces ? "Show Less" : `+${pkg.places.length - 5} More`}
+              {isExpanded ? "Show Less" : `+ ${pkg.places.length - 4} More`}
             </button>
           )}
         </div>
 
-        <div className="mt-auto">
-          <button 
-            onClick={() => onBook(pkg)} 
-            className="w-full bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold py-3.5 rounded-xl transition-all shadow-[0_4px_14px_0_rgba(249,115,22,0.39)] active:scale-[0.98]"
-          >
-            Book This Package
-          </button>
-        </div>
+        <button 
+          onClick={() => onBook(pkg)} 
+          className="w-full mt-auto bg-brand-orange text-white text-xs font-bold py-3.5 rounded-xl hover:bg-orange-600 transition shadow-md flex items-center justify-center gap-2 active:scale-95"
+        >
+          Book Package <ChevronRight size={14} />
+        </button>
       </div>
     </div>
   );
@@ -80,52 +85,36 @@ const Packages = () => {
   const filtered = activeFilter === 'All' ? allPackages : allPackages.filter(p => p.duration.includes(activeFilter));
 
   return (
-    <section id="packages" className="py-16 md:py-20 bg-gray-50">
-      <div className="page-container max-w-7xl mx-auto px-4">
+    <section id="packages" className="py-16 bg-gray-50">
+      <div className="page-container px-4">
         
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
-          <div className="text-center md:text-left w-full md:w-auto">
-            <span className="text-orange-600 font-bold uppercase text-xs tracking-wider">Top Rated Tours</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-1">Our Tour Packages</h2>
-          </div>
-          
-          <div className="relative w-full md:w-64">
-            <select 
-              value={activeFilter}
-              onChange={(e) => setActiveFilter(e.target.value)}
-              className="w-full appearance-none bg-white border border-gray-200 text-gray-700 py-3 pl-4 pr-10 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 font-semibold cursor-pointer text-sm"
-            >
-              <option value="All">All Durations</option>
-              <option value="1 Day">1 Day Trips</option>
-              <option value="2 Days">2 Days Trips</option>
-              <option value="3 Days">3 Days Trips</option>
-              <option value="4 Days">4 Days Trips</option>
-              <option value="5 Days">5 Days Trips</option>
-              <option value="6 Days">6 Days Trips</option>
-              <option value="1 Week">1 Week Trips</option>
-            </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-400">
-              <ChevronDown size={18} />
-            </div>
-          </div>
+        <div className="text-center mb-10">
+          <span className="text-brand-orange font-bold uppercase text-[10px] tracking-widest">Divine Yatras</span>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mt-1">Tour Packages</h2>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.length > 0 ? (
-            filtered.map((pkg) => (
-              <PackageCard 
-                key={pkg.id} 
-                pkg={pkg} 
-                onBook={setSelectedPackage} 
-              />
-            ))
-          ) : (
-            <div className="col-span-full py-20 text-center">
-              <p className="text-gray-500">No matching packages. Try "All Durations".</p>
-            </div>
-          )}
+        {/* Filter Tabs */}
+        <div className="flex overflow-x-auto gap-2 pb-8 hide-scrollbar justify-start md:justify-center">
+          {['All', '1 Day', '2 Days', '3 Days', '1 Week'].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`px-5 py-2 rounded-full text-[11px] font-bold transition-all whitespace-nowrap border ${
+                activeFilter === cat 
+                ? 'bg-brand-orange border-brand-orange text-white shadow-md' 
+                : 'bg-white border-gray-200 text-gray-500 hover:border-brand-orange'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Packages Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((pkg) => (
+            <PackageCard key={pkg.id} pkg={pkg} onBook={setSelectedPackage} />
+          ))}
         </div>
       </div>
 

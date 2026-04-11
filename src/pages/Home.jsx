@@ -5,6 +5,7 @@ import Packages from '../components/home/Packages';
 import CustomizedBanner from '../components/home/CustomizedBanner';
 import Destinations from '../components/home/Destinations';
 import WhyChooseUs from '../components/home/WhyChooseUs';
+import Reviews from '../components/home/Reviews';
 
 // 1. Keep the LocalSEO component here
 const LocalSEO = () => (
@@ -58,6 +59,7 @@ const Home = () => {
       <CustomizedBanner />
       <Destinations />
       <WhyChooseUs />
+      <Reviews />
       <LocalSEO /> 
     </>
   );

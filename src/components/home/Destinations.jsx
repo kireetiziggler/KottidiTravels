@@ -1,10 +1,10 @@
 import React from 'react';
 
 const destinations = [
-  { name: 'Tirumala', image: '/images/tirumala.jpg' },
-  { name: 'Srikalahasti', image: '/images/kalahasti.jpg' },
-  { name: 'Arunachalam', image: '/images/arunachalam.jpg' },
-  { name: 'Kanipakam', image: '/images/kanipakam.jpg' },
+  { name: 'Tirumala', image: '/images/tirumala.webp' },
+  { name: 'Srikalahasti', image: '/images/srikalahasti.webp' },
+  { name: 'Arunachalam', image: '/images/arunachalam.webp' },
+  { name: 'Kanipakam', image: '/images/kanipakam.webp' },
 ];
 
 const Destinations = () => {
