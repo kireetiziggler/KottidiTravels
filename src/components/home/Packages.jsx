@@ -12,7 +12,8 @@ const allPackages = [
   { id: 7, title: 'South Heritage Glimpse', duration: '4 Days', places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Tanjavur', 'Kumbakonam'], image: '/images/kanchipuram.webp' },
   { id: 8, title: 'Pure Tamil Nadu Yatra', duration: '5 Days', places: ['Madurai', 'Rameswaram', 'Palani', 'Kanyakumari', 'Thiruchendur'], image: '/images/Kanyakumari.webp' },
   { id: 9, title: 'South India Highlights', duration: '6 Days', places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Tanjavur', 'Kumbakonam', 'Madurai', 'Rameswaram'], image: '/images/trivandrum.webp' },
-  { id: 10, title: 'The Grand South Yatra', duration: '1 Week', isPopular: true, places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Madurai', 'Rameswaram', 'Kanyakumari', 'Munnar', 'Ooty'], image: '/images/South-india-packages.webp' },
+  { id: 10, title: 'Aru Padai Yatra', duration: '6 Days', places: ['THIRUPARANAKUNDRAM', 'PALANI', 'TIRUCHENDUR', 'SWAMIMALAI', 'THIRUTHANI', 'PAZHAMUDIRCHOLAI'], image: '/images/aru_padai_yatra.webp' },
+  { id: 11, title: 'The Grand South Yatra', duration: '1 Week', isPopular: true, places: ['Kanipakam', 'Kanchipuram', 'Golden Temple', 'Arunachalam', 'Sri Ranganatha temple', 'Madurai', 'Rameswaram', 'Kanyakumari', 'Munnar', 'Ooty'], image: '/images/South-india-packages.webp' },
 ];
 
 const PackageCard = ({ pkg, onBook }) => {
@@ -95,7 +96,7 @@ const Packages = () => {
 
         {/* Filter Tabs */}
         <div className="flex overflow-x-auto gap-2 pb-8 hide-scrollbar justify-start md:justify-center">
-          {['All', '1 Day', '2 Days', '3 Days', '1 Week'].map((cat) => (
+          {['All', '1 Day', '2 Days', '3 Days', '4 Days', '5 Days', '6 Days', '1 Week'].map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveFilter(cat)}

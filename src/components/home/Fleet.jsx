@@ -40,8 +40,8 @@ const Fleet = () => {
       <div className="page-container px-4">
         
         <div className="text-center mb-10">
-          <span className="text-brand-orange font-bold uppercase text-[10px] tracking-[0.2em]">Our Fleet & Rates</span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2">Fixed Pricing</h2>
+          <span className="text-brand-orange font-bold uppercase text-[10px] tracking-[0.2em]">Our Fleet & Prices</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 mt-2">Our Vehicles</h2>
         </div>
         
         <div className="relative group">

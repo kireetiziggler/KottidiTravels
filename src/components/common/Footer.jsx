@@ -12,8 +12,8 @@ const Footer = () => {
             Your trusted travel partner in Tirupati. We provide comfortable, safe, and reliable vehicle services for pilgrimages, outstation trips, and customized tours.
           </p>
           <div className="flex gap-4">
-            <a href="#" className="text-gray-400 hover:text-brand-orange"><Facebook size={20}/></a>
-            <a href="#" className="text-gray-400 hover:text-brand-orange"><Instagram size={20}/></a>
+            <a href="https://www.facebook.com/kottiditravelstirupati" className="text-gray-400 hover:text-brand-orange"><Facebook size={20}/></a>
+            <a href="https://www.instagram.com/kottiditravelstirupati" className="text-gray-400 hover:text-brand-orange"><Instagram size={20}/></a>
           </div>
         </div>
         
@@ -23,7 +23,6 @@ const Footer = () => {
             <li><Link to="/" className="hover:text-brand-orange transition">Home</Link></li>
             <li><Link to="/about" className="hover:text-brand-orange transition">About Us</Link></li>
             <li><Link to="/contact" className="hover:text-brand-orange transition">Contact Us</Link></li>
-            <li><a href="/#packages" className="hover:text-brand-orange transition">Tour Packages</a></li>
           </ul>
         </div>
 
