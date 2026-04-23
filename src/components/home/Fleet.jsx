@@ -4,7 +4,7 @@ import { Users, Gauge, ChevronRight } from 'lucide-react';
 
 const vehicles = [
   { id: 1, name: 'Innova Crysta Rental', badge: '6-7 Seaters', image: '/images/innova_crysta.webp', desc: 'Premium comfort for families visiting Tirumala and Tamil Nadu temples.', localRate: '3,000', outstationRate: '22/KM', mileage: '10 KM/L' },
-  { id: 2, name: 'Toyota Innova Taxi', badge: '6-7 Seaters', image: '/images/innova.jpg', desc: 'The most reliable choice for long-distance South India pilgrimage tours.', localRate: '2,500', outstationRate: '20/KM', mileage: '10 KM/L' },
+  { id: 2, name: 'Toyota Innova', badge: '6-7 Seaters', image: '/images/Innova_normal.webp', desc: 'The most reliable choice for long-distance South India pilgrimage tours.', localRate: '2,500', outstationRate: '20/KM', mileage: '10 KM/L' },
   { id: 3, name: 'Tempo Traveller', badge: '12-17 Seaters', image: '/images/tempo.jpg', desc: 'Perfect for group yatras to Arunachalam, Kanchipuram, and Vellore.', localRate: '3,500', outstationRate: '25/KM', mileage: '7 KM/L' },
   { id: 4, name: 'Force Urbania', badge: '12-16 Seaters', image: '/images/Urbania.webp', desc: 'Next-gen luxury for corporate groups and large family events.', localRate: '6,000', outstationRate: '38/KM', mileage: '7 KM/L' },
   { id: 5, name: 'Swift Dzire Cabs', badge: '4-5 Seaters', image: '/images/Dzire.webp', desc: 'Budget-friendly sedan for quick Tirupati local and airport drops.', localRate: '2,000', outstationRate: '15/KM', mileage: '10 KM/L' },
