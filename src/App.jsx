@@ -10,7 +10,7 @@ import { MessageCircle, Phone } from 'lucide-react';
 
 function App() {
   // Your business contact number
-  const phoneNumber = "919493015558";
+  const phoneNumber = "9493015558";
 
   return (
     <Router>
