@@ -13,7 +13,7 @@ const CallBanner = () => {
     <div className="w-full bg-orange-50 border-b border-orange-200 py-3">
       <div className="max-w-7xl mx-auto px-4 flex justify-center">
         <a 
-          href="tel:9493015558"
+          href="tel:9032264229"
           className="group relative flex items-center justify-center gap-3 bg-[#ff6600] hover:bg-[#e65c00] text-white px-6 py-3 rounded-full font-bold text-lg md:text-xl shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95"
         >
           {/* Pulsing Effect */}

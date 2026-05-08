@@ -19,7 +19,7 @@ const PackageBookingModal = ({ isOpen, onClose, selectedPackage }) => {
       return;
     }
 
-    const phone = "919493015558";
+    const phone = "9032264229";
     const formatDate = (date) => date ? date.toLocaleDateString('en-GB') : '';
     const dateStr = endDate ? `${formatDate(startDate)} to ${formatDate(endDate)}` : formatDate(startDate);
 
