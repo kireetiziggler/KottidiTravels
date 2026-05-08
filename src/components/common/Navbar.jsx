@@ -23,8 +23,8 @@ const Navbar = () => {
             />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900 leading-none font-sans">
-              Kottidi Travels <span className="text-brand-orange">Tirupati</span>
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight font-sans">
+              Kottidi Travels <br className="md:hidden" /><span className="text-brand-orange">Tirupati</span>
             </h1>
           </div>
         </Link>
