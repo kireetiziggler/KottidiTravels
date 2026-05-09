@@ -10,20 +10,20 @@ const Navbar = () => {
 
   return (
     <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm h-20 flex items-center">
-      <div className="page-container w-full flex justify-between items-center">
+      <div className="page-container w-full flex justify-between items-center gap-2">
         
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="group-hover:scale-105 transition">
+        <Link to="/" className="flex items-center gap-1.5 md:gap-2 group min-w-0">
+          <div className="group-hover:scale-105 transition shrink-0">
             {/* Replaced Car icon with logo.webp */}
             <img 
               src="/images/logo.webp" 
               alt="Kottidi Travels Logo" 
-              className="h-12 w-auto object-contain" 
+              className="h-10 md:h-12 w-auto max-w-[60px] md:max-w-none object-contain" 
             />
           </div>
-          <div>
-            <h1 className="text-xl md:text-2xl font-bold text-gray-900 leading-tight font-sans">
+          <div className="min-w-0 shrink">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 leading-tight font-sans whitespace-nowrap">
               Kottidi Travels <br className="md:hidden" /><span className="text-brand-orange">Tirupati</span>
             </h1>
           </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-700">
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-gray-700 shrink-0 p-1">
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
