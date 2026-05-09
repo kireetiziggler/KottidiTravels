@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Car } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,13 +9,12 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path ? "text-brand-orange font-bold" : "text-gray-600 hover:text-brand-orange";
 
   return (
-    <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm shadow-sm h-20 flex items-center">
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-white/95 backdrop-blur-sm shadow-sm h-20 flex items-center">
       <div className="page-container w-full flex justify-between items-center gap-2">
         
         {/* Brand */}
         <Link to="/" className="flex items-center gap-1.5 md:gap-2 group min-w-0">
           <div className="group-hover:scale-105 transition shrink-0">
-            {/* Replaced Car icon with logo.webp */}
             <img 
               src="/images/logo.webp" 
               alt="Kottidi Travels Logo" 
@@ -34,7 +33,6 @@ const Navbar = () => {
           <Link to="/" className={isActive('/')}>Home</Link>
           <Link to="/about" className={isActive('/about')}>About Us</Link>
           <Link to="/contact" className={isActive('/contact')}>Contact</Link>
-          {/* Changed Link to /contact */}
           <Link to="/contact" className="px-6 py-2 bg-brand-orange text-white rounded-lg hover:bg-orange-700 transition shadow-md hover:shadow-lg">
             Book Now
           </Link>
@@ -48,7 +46,7 @@ const Navbar = () => {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="absolute top-20 left-0 w-full bg-white border-t md:hidden shadow-lg">
+        <div className="absolute top-20 left-0 w-full bg-white border-t md:hidden shadow-lg z-[110]">
           <div className="flex flex-col p-6 space-y-4 font-medium text-lg text-center">
             <Link to="/" onClick={()=>setIsOpen(false)} className={isActive('/')}>Home</Link>
             <Link to="/about" onClick={()=>setIsOpen(false)} className={isActive('/about')}>About Us</Link>

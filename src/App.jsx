@@ -9,16 +9,25 @@ import ScrollToTop from './components/common/ScrollToTop';
 import { MessageCircle, Phone } from 'lucide-react';
 
 function App() {
-  // Your business contact number
   const phoneNumber = "9032264229";
+
+  // Google Ads Call Tracking Function
+  const trackCall = () => {
+    if (window.gtag) {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-16644412620/call_click', // Verify this label in Ads Dashboard
+        'event_category': 'Contact',
+        'event_label': 'Floating Call Button'
+      });
+    }
+  };
 
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen bg-brand-bg flex flex-col font-sans text-gray-900">
+      <div className="min-h-screen bg-brand-bg flex flex-col font-sans text-gray-900 overflow-x-hidden">
         <Navbar />
         
-        {/* Main Content Area */}
         <main className="flex-grow pt-20"> 
           <Routes>
             <Route path="/" element={<Home />} />
@@ -30,36 +39,23 @@ function App() {
         <Footer />
         
         {/* Floating Contact Actions */}
-        <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
-          
-          {/* Call Button - Brand Orange */}
+        <div className="fixed bottom-20 right-6 flex flex-col gap-5 z-[9999]">
           <a 
             href={`tel:${phoneNumber}`}
-            className="bg-[#f97316] text-white p-3 md:p-4 rounded-full shadow-2xl animate-bounce transition-transform hover:scale-110 flex items-center justify-center group relative"
-            title="Call Us Now"
+            onClick={trackCall} // Tracking Hook
+            className="bg-[#f97316] text-white p-4 rounded-full shadow-2xl animate-bounce transition-transform hover:scale-110 flex items-center justify-center"
           >
-            <Phone size={28} />
-            {/* Desktop Label */}
-            <span className="absolute right-16 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none transition-opacity">
-              Call Us
-            </span>
+            <Phone size={28} strokeWidth={2.5} />
           </a>
 
-          {/* WhatsApp Button - WhatsApp Green */}
           <a 
             href={`https://wa.me/${phoneNumber}`}
             target="_blank" 
             rel="noreferrer"
-            className="bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-2xl animate-bounce transition-transform hover:scale-110 flex items-center justify-center group relative"
-            title="Chat on WhatsApp"
+            className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl animate-bounce transition-transform hover:scale-110 flex items-center justify-center"
           >
-            <MessageCircle size={28} />
-            {/* Desktop Label */}
-            <span className="absolute right-16 bg-gray-900 text-white text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 whitespace-nowrap pointer-events-none transition-opacity">
-              WhatsApp
-            </span>
+            <MessageCircle size={28} strokeWidth={2.5} />
           </a>
-          
         </div>
       </div>
     </Router>

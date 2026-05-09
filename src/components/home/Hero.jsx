@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    <section className="pt-10 pb-16 md:pt-16 md:pb-24 bg-brand-bg overflow-hidden">
+    /* Changed pt-10 to pt-4 to fix the top spacing gap, kept everything else */
+    <section className="pt-4 pb-16 md:pt-16 md:pb-24 bg-brand-bg overflow-hidden">
       <div className="page-container flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-16">
         
         {/* Text Content */}
@@ -56,7 +57,7 @@ const Hero = () => {
               src="/images/Tirumala_home2.webp" 
               alt="Tirumala Temple Hills" 
               className="w-full h-full object-cover"
-              onError={(e) => {e.target.src = 'https://images.unsplash.com/photo-1623933671813-b541a4a42b18?w=800'}} // Fallback if image missing
+              onError={(e) => {e.target.src = 'https://images.unsplash.com/photo-1623933671813-b541a4a42b18?w=800'}} 
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
