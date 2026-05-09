@@ -10,6 +10,23 @@
       gtag('config', 'AW-16644412620');
     </script>
 
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-16644412620/8mQYCLGHgqocEMyp1oA-',
+          'value': 1.0,
+          'currency': 'INR',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
+
     <link rel="icon" type="image/webp" href="public/images/kottidi-logo.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kottidi Travels Tirupati | Best Car Rental & Taxi Service in Tirupati</title>

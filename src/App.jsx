@@ -11,14 +11,10 @@ import { MessageCircle, Phone } from 'lucide-react';
 function App() {
   const phoneNumber = "9032264229";
 
-  // Google Ads Call Tracking Function
+  // Google Ads Call Tracking Function - Integrated with conversion script
   const trackCall = () => {
-    if (window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-16644412620/call_click', // Verify this label in Ads Dashboard
-        'event_category': 'Contact',
-        'event_label': 'Floating Call Button'
-      });
+    if (typeof window.gtag_report_conversion === 'function') {
+      window.gtag_report_conversion();
     }
   };
 

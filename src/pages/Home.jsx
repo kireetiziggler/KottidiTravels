@@ -8,14 +8,10 @@ import WhyChooseUs from '../components/home/WhyChooseUs';
 import Reviews from '../components/home/Reviews';
 
 const Home = () => {
-  // Tracking function for page-specific buttons
+  // Tracking function for page-specific buttons - Integrated with conversion script
   const trackBannerCall = () => {
-    if (window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-16644412620/banner_click',
-        'event_category': 'Conversion',
-        'event_label': 'Top Call Banner'
-      });
+    if (typeof window.gtag_report_conversion === 'function') {
+      window.gtag_report_conversion();
     }
   };
 
