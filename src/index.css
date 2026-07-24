@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -11,9 +11,10 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #FFFBF7;
-  color: #374151; /* Softer gray text */
+  color: #374151;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Global Container - Controls spacing for all devices */
@@ -21,13 +22,32 @@ body {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full;
 }
 
+/* Premium Glass Effect */
+.glass-premium {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
 /* Ultra-Transparent Glass Effect */
 .glass-transparent {
-  background: rgba(255, 255, 255, 0.05); /* Very low opacity */
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Premium Card Hover */
+.card-premium {
+  @apply bg-white rounded-2xl border border-gray-100;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.card-premium:hover {
+  @apply shadow-xl border-gray-200;
+  transform: translateY(-2px);
 }
 
 /* Custom Dropdown Arrow */
@@ -38,6 +58,7 @@ select {
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
   -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 /* Datepicker Overrides */
@@ -50,7 +71,86 @@ select {
 .react-datepicker__header {
   background-color: #FF5722 !important;
   border-radius: 12px 12px 0 0 !important;
+  padding-top: 12px !important;
+}
+.react-datepicker__current-month,
+.react-datepicker__day-name {
+  color: white !important;
 }
 .react-datepicker__day--selected {
   background-color: #FF5722 !important;
+}
+.react-datepicker__day--keyboard-selected {
+  background-color: rgba(255, 87, 34, 0.2) !important;
+}
+
+/* Hide Scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Image Loading Placeholder */
+.image-placeholder {
+  @apply bg-gray-100 animate-pulse rounded-2xl;
+}
+
+/* Smooth Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fadeInUp-delay-1 {
+  animation-delay: 0.1s;
+}
+.animate-fadeInUp-delay-2 {
+  animation-delay: 0.2s;
+}
+.animate-fadeInUp-delay-3 {
+  animation-delay: 0.3s;
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #FF5722 0%, #FF8A65 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium Gradient Border */
+.border-gradient {
+  border: 1px solid transparent;
+  background-image: linear-gradient(white, white), 
+                    linear-gradient(135deg, #FF5722, #FF8A65);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Focus Styles */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #FF5722;
+  outline-offset: 2px;
+}
+
+/* Selection Color */
+::selection {
+  background-color: #FF5722;
+  color: white;
 }

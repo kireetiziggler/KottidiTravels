@@ -1,21 +1,21 @@
 import React from 'react';
-import { ShieldCheck, Users } from 'lucide-react';
+import { ShieldCheck, Users, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
-    /* Changed pt-10 to pt-4 to fix the top spacing gap, kept everything else */
     <section className="pt-4 pb-16 md:pt-16 md:pb-24 bg-brand-bg overflow-hidden">
       <div className="page-container flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-16">
         
         {/* Text Content */}
         <div className="flex-1 space-y-5 md:space-y-6 z-10 text-center lg:text-left">
-          <div className="inline-block bg-orange-100 text-brand-orange px-3 py-1.5 rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase mb-1">
+          <div className="inline-flex items-center gap-2 bg-orange-100 text-brand-orange px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold tracking-wider uppercase mb-1">
+            <Star size={12} className="fill-brand-orange" />
             #1 Travel Service in Tirupati
           </div>
           
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 leading-[1.2]">
-            Best <span className="text-brand-orange">Tirupati Travels</span> & <br className="hidden md:block" />
+            Best <span className="text-gradient">Tirupati Travels</span> & <br className="hidden md:block" />
             Car Rental Service
           </h1>
 
@@ -24,10 +24,10 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
-            <a href="#fleet" className="px-6 py-3.5 bg-brand-orange text-white rounded-xl font-bold text-sm shadow-lg hover:bg-orange-700 transition w-full sm:w-auto">
+            <a href="#fleet" className="px-6 py-3.5 bg-gradient-to-r from-brand-orange to-orange-500 text-white rounded-xl font-bold text-sm shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-orange-600 transition-all w-full sm:w-auto text-center">
               Book Your Ride
             </a>
-            <Link to="/contact" className="px-6 py-3.5 bg-white border border-gray-200 text-gray-900 rounded-xl font-bold text-sm hover:border-brand-orange transition w-full sm:w-auto">
+            <Link to="/contact" className="px-6 py-3.5 bg-white border border-gray-200 text-gray-900 rounded-xl font-bold text-sm hover:border-brand-orange hover:text-brand-orange transition w-full sm:w-auto text-center">
               Contact Us
             </Link>
           </div>
@@ -50,16 +50,19 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Hero Image - Local File */}
+        {/* Hero Image */}
         <div className="flex-1 w-full relative px-2 md:px-0">
           <div className="rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl h-[280px] md:h-[450px] relative z-0">
             <img 
               src="/images/Tirumala_home2.webp" 
-              alt="Tirumala Temple Hills" 
+              alt="Tirumala Temple Hills - Kottidi Travels Tirupati" 
               className="w-full h-full object-cover"
+              loading="eager"
+              width="800"
+              height="450"
               onError={(e) => {e.target.src = 'https://images.unsplash.com/photo-1623933671813-b541a4a42b18?w=800'}} 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
         </div>
       </div>

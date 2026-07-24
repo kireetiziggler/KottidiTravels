@@ -4,13 +4,35 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
   <loc>https://kottiditravelstirupati.in/</loc>
-  <lastmod>2026-04-11T18:54:20+00:00</lastmod>
+  <lastmod>2026-07-24</lastmod>
+  <priority>1.00</priority>
 </url>
 
+<url>
+  <loc>https://kottiditravelstirupati.in/about</loc>
+  <lastmod>2026-07-24</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://kottiditravelstirupati.in/contact</loc>
+  <lastmod>2026-07-24</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://kottiditravelstirupati.in/faq</loc>
+  <lastmod>2026-07-24</lastmod>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://kottiditravelstirupati.in/blog</loc>
+  <lastmod>2026-07-24</lastmod>
+  <priority>0.70</priority>
+</url>
 
 </urlset>
