@@ -9,7 +9,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const msg = `*New Website Inquiry*%0A👤 *Name:* ${formData.name}%0A📱 *Phone:* ${formData.phone}%0A📧 *Email:* ${formData.email}%0A📅 *Date:* ${formData.date}%0A👥 *Pax:* ${formData.passengers}%0A📍 *Package:* ${formData.destination}%0A📝 *Msg:* ${formData.message}`;
-    window.open(`https://wa.me/9032264229?text=${msg}`, '_blank');
+    window.open(`https://wa.me/8143015558?text=${msg}`, '_blank');
   };
 
   return (
@@ -37,7 +37,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-900 text-sm">Phone Number</h4>
-                  <p className="text-sm text-gray-600 font-medium">+91 9032264229</p>
+                  <p className="text-sm text-gray-600 font-medium">+91 8143015558</p>
                   <p className="text-xs text-green-600 mt-0.5 font-medium">● Available 24/7</p>
                 </div>
               </div>
@@ -80,10 +80,10 @@ const Contact = () => {
               <h4 className="font-bold text-gray-900 mb-2">Quick Booking</h4>
               <p className="text-xs text-gray-500 mb-5">Need immediate assistance? Reach us directly:</p>
               <div className="space-y-3">
-                <a href="tel:9032264229" className="flex items-center justify-center gap-2 w-full bg-brand-orange text-white text-sm font-bold py-3 rounded-xl hover:bg-orange-600 transition shadow-lg shadow-orange-200">
+                <a href="tel:8143015558" className="flex items-center justify-center gap-2 w-full bg-brand-orange text-white text-sm font-bold py-3 rounded-xl hover:bg-orange-600 transition shadow-lg shadow-orange-200">
                   <PhoneCall size={16} /> Call Now
                 </a>
-                <a href="https://wa.me/919032264229" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white text-sm font-bold py-3 rounded-xl hover:bg-green-600 transition shadow-lg shadow-green-100">
+                <a href="https://wa.me/918143015558" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white text-sm font-bold py-3 rounded-xl hover:bg-green-600 transition shadow-lg shadow-green-100">
                   <MessageSquare size={16} /> WhatsApp Booking
                 </a>
               </div>

@@ -19,11 +19,11 @@ const Home = () => {
     <div className="w-full bg-orange-50 border-b border-orange-200 py-3 relative z-10">
       <div className="max-w-7xl mx-auto px-4 flex justify-center text-center">
         <a 
-          href="tel:9032264229" 
+          href="tel:8143015558" 
           onClick={trackBannerCall} // Tracking Hook
           className="bg-[#ff6600] text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 animate-pulse shadow-lg text-sm sm:text-base"
         >
-          CALL NOW: 9032264229
+          CALL NOW: 8143015558
         </a>
       </div>
     </div>

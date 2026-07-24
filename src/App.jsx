@@ -9,7 +9,7 @@ import ScrollToTop from './components/common/ScrollToTop';
 import { MessageCircle, Phone } from 'lucide-react';
 
 function App() {
-  const phoneNumber = "9032264229";
+  const phoneNumber = "8143015558";
 
   // Google Ads Call Tracking Function - Integrated with conversion script
   const trackCall = () => {

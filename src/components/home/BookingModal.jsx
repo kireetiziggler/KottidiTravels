@@ -19,7 +19,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle }) => {
       return;
     }
 
-    const phone = "919032264229";
+    const phone = "918143015558";
     
     const formatDate = (date) => {
       if (!date) return '';
