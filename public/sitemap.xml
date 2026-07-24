@@ -32,7 +32,25 @@
 <url>
   <loc>https://kottiditravelstirupati.in/blog</loc>
   <lastmod>2026-07-24</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://kottiditravelstirupati.in/blog/tirumala-darshan-guide-2026</loc>
+  <lastmod>2026-07-24</lastmod>
   <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://kottiditravelstirupati.in/blog/tirupati-to-chennai-taxi-fare</loc>
+  <lastmod>2026-07-24</lastmod>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://kottiditravelstirupati.in/tirupati-travels</loc>
+  <lastmod>2026-07-24</lastmod>
+  <priority>0.90</priority>
 </url>
 
 </urlset>

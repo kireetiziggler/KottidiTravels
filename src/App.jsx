@@ -10,6 +10,7 @@ import Blog from './pages/Blog';
 import NotFound from './pages/NotFound';
 import TirumalaDarshanGuide from './pages/blog/TirumalaDarshanGuide';
 import TirupatiToChennaiFare from './pages/blog/TirupatiToChennaiTaxiFare';
+import TirupatiTravels from './pages/TirupatiTravels';
 import ScrollToTop from './components/common/ScrollToTop';
 import BackToTop from './components/common/BackToTop';
 import { MessageCircle, Phone } from 'lucide-react';
@@ -50,6 +51,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/tirumala-darshan-guide-2026" element={<TirumalaDarshanGuide />} />
             <Route path="/blog/tirupati-to-chennai-taxi-fare" element={<TirupatiToChennaiFare />} />
+            <Route path="/tirupati-travels" element={<TirupatiTravels />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
